@@ -443,56 +443,56 @@ $(document).ready(function(){
 })(jQuery));
 
 
-$('.carousel-b-item').each(function(){
-    $(this).magnificPopup({
-        type: 'image',
-        delegate: '.carousel-b-item',
-        gallery: {
-            enabled: true,
-            // arrowMarkup: '<button type="button" class="mfp-arrow mfp-arrow-%dir%"><svg class="svg" width="30" height="30"><use xlink:href="img/sprite.svg#arrow-%dir%"></use></svg></button>',
-        },
-        closeOnContentClick: true,
-        removalDelay: 300,
-        tLoading: "",
-        mainClass: 'mfp-zoom-in-gallery',
-        autoFocusLast: false,
-        callbacks: {
-            elementParse: function(item) {
-                // the class name
-                if($(item.el).hasClass('is-video')) {
-                    item.type = 'iframe';
-                } else {
-                    item.type = 'image';
-                }
-            },
-            imageLoadComplete: function() {
-                var self = this;
-                setTimeout(function() {
-                    self.wrap.addClass('mfp-image-loaded');
-                }, 16);
-            },
-            close: function() {
-                this.wrap.removeClass('mfp-image-loaded');
-            },
-            open: function() {
-                $.magnificPopup.instance.next = function() {
-                    var self = this;
-                    self.wrap.removeClass('mfp-image-loaded');
-                    setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-                }
-                $.magnificPopup.instance.prev = function() {
-                    var self = this;
-                    self.wrap.removeClass('mfp-image-loaded');
-                    setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-                }
-            },
-            // imageLoadComplete: function() {
-            //     var self = this;
-            //     setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-            // }
-        },
-    });
-});
+// $('.carousel-b-item').each(function(){
+//     $(this).magnificPopup({
+//         type: 'image',
+//         delegate: '.carousel-b-item',
+//         gallery: {
+//             enabled: true,
+//             // arrowMarkup: '<button type="button" class="mfp-arrow mfp-arrow-%dir%"><svg class="svg" width="30" height="30"><use xlink:href="img/sprite.svg#arrow-%dir%"></use></svg></button>',
+//         },
+//         closeOnContentClick: true,
+//         removalDelay: 300,
+//         tLoading: "",
+//         mainClass: 'mfp-zoom-in-gallery',
+//         autoFocusLast: false,
+//         callbacks: {
+//             elementParse: function(item) {
+//                 // the class name
+//                 if($(item.el).hasClass('is-video')) {
+//                     item.type = 'iframe';
+//                 } else {
+//                     item.type = 'image';
+//                 }
+//             },
+//             imageLoadComplete: function() {
+//                 var self = this;
+//                 setTimeout(function() {
+//                     self.wrap.addClass('mfp-image-loaded');
+//                 }, 16);
+//             },
+//             close: function() {
+//                 this.wrap.removeClass('mfp-image-loaded');
+//             },
+//             open: function() {
+//                 $.magnificPopup.instance.next = function() {
+//                     var self = this;
+//                     self.wrap.removeClass('mfp-image-loaded');
+//                     setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
+//                 }
+//                 $.magnificPopup.instance.prev = function() {
+//                     var self = this;
+//                     self.wrap.removeClass('mfp-image-loaded');
+//                     setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
+//                 }
+//             },
+//             // imageLoadComplete: function() {
+//             //     var self = this;
+//             //     setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
+//             // }
+//         },
+//     });
+// });
 
 
 $('.doors-gallery').slick({
@@ -520,11 +520,26 @@ $('.doors-gallery').slick({
             }
         }
     ]
-}).on('setPosition', function (event, slick) {
-    slick.$slides.css('height', slick.$slideTrack.height() + 'px');
 });
 
 
 baguetteBox.run('.doors-gallery', {
     animation: 'slideIn',
 });
+
+baguetteBox.run('.carousel-container-1', {
+    animation: 'fadeIn',
+});
+baguetteBox.run('.carousel-container-2', {
+    animation: 'fadeIn',
+});
+baguetteBox.run('.carousel-container-3', {
+    animation: 'fadeIn',
+});
+baguetteBox.run('.carousel-container-4', {
+    animation: 'fadeIn',
+});
+baguetteBox.run('.carousel-container-5', {
+    animation: 'fadeIn',
+});
+
